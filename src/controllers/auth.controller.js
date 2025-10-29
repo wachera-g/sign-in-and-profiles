@@ -1,0 +1,1 @@
+// What to do for each menu item (register, login, profile, logout)

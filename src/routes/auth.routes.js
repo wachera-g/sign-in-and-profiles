@@ -1,0 +1,1 @@
+// Routes (menu items): /register, /login, /profile, /logout
