@@ -5,11 +5,20 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid()) //generate a safe unique string id automatically
+  name         String
+  email        String   @unique //prevents duplicates
+  passwordHash String
+  createdAt    DateTime @default(now())  //sets createdAt automatically
+  updatedAt    DateTime @updatedAt  // updates the timestamps whenever the row changes
 }
